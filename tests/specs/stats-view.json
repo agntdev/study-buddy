@@ -1,19 +1,17 @@
 [
   {
-    "name": "Check stats",
+    "name": "Check stats via button with no sessions",
     "steps": [
       {
+        "send": { "callback": "stats:view" },
         "expect": [
           {
-            "method": "sendMessage",
+            "method": "editMessageText",
             "payload": {
-              "text": "View study progress and statistics"
+              "text": "📊 No study sessions yet!\n\nStart your first focus session to see your progress here."
             }
           }
-        ],
-        "send": {
-          "callback": "stats:view"
-        }
+        ]
       }
     ]
   }

@@ -1,19 +1,17 @@
 [
   {
-    "name": "Start focus session",
+    "name": "Start focus session via /focus",
     "steps": [
       {
+        "send": { "text": "/focus" },
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Start a new study session"
+              "text": "📚 Focus session started!\n\nTopic: General study\nDuration: 30 minutes\n\nDeep work mode — let's crush it 💪\n\nTap \"Done\" when you finish, or I'll check in when time's up."
             }
           }
-        ],
-        "send": {
-          "text": "/focus"
-        }
+        ]
       }
     ]
   }
