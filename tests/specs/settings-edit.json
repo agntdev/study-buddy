@@ -1,19 +1,17 @@
 [
   {
-    "name": "Settings",
+    "name": "Settings button opens settings panel",
     "steps": [
       {
+        "send": { "callback": "settings:edit" },
         "expect": [
           {
-            "method": "sendMessage",
+            "method": "editMessageText",
             "payload": {
-              "text": "Configure study preferences and goals"
+              "text": "⚙️ Study Settings\n\n⏱ Default session: 30 min\n🔔 Reminder every: 15 min\n🎯 Goals: Not set yet\n\nTap a button to change a setting."
             }
           }
-        ],
-        "send": {
-          "callback": "settings:edit"
-        }
+        ]
       }
     ]
   }

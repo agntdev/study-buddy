@@ -1,17 +1,19 @@
 import { Composer } from "grammy";
+import type { Ctx } from "../bot.js";
+import { inlineButton, inlineKeyboard } from "../toolkit/index.js";
 
-// SCAFFOLD — generated from the bot blueprint BEFORE the agent runs.
-// Keep a LIVE registration (.command / .callbackQuery / …) so this feature is
-// never an empty stub. Replace the reply body with real logic + copy; if you
-// change the user-facing text, update tests/specs to match EXACTLY.
-// Do NOT rewrite src/bot.ts — buildBot() already auto-loads this module.
-// Menu: wire this into /start via registerMainMenuItem({ label: "Help", data: "help:show" }) if the toolkit exposes it.
+const HELP =
+  "ℹ️ Tap /start to open the menu, then pick what you want from the buttons.\n\n" +
+  "Everything in this bot is reachable by tapping — you don't need to remember any commands.";
 
-const composer = new Composer();
+const composer = new Composer<Ctx>();
 
+// "Help" button from the /start main menu.
 composer.callbackQuery("help:show", async (ctx) => {
   await ctx.answerCallbackQuery();
-  await ctx.reply("Show help and usage instructions");
+  await ctx.editMessageText(HELP, {
+    reply_markup: inlineKeyboard([[inlineButton("⬅️ Back to menu", "menu:main")]]),
+  });
 });
 
 export default composer;

@@ -1,19 +1,17 @@
 [
   {
-    "name": "Check study stats",
+    "name": "Check study stats with no sessions",
     "steps": [
       {
+        "send": { "text": "/stats" },
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "View study progress and statistics"
+              "text": "📊 No study sessions yet!\n\nStart your first focus session to see your progress here."
             }
           }
-        ],
-        "send": {
-          "text": "/stats"
-        }
+        ]
       }
     ]
   }
