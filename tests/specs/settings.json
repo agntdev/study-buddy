@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Set study preferences",
+    "steps": [
+      {
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Configure study preferences and goals"
+            }
+          }
+        ],
+        "send": {
+          "text": "/settings"
+        }
+      }
+    ]
+  }
+]
